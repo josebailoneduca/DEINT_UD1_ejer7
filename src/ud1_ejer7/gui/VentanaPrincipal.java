@@ -10,11 +10,17 @@ import java.awt.Color;
 import ud1_ejer7.logica.Logica;
 
 /**
- *
+ *  Ventana del ejercicio.
+ * Los radiobuttons avisan a la lógica de qué elemento sera el que debe modificarse
+ * Cuando se pulsa uno de los botones de los colores se aplica el color especificado
+ * por ese color al tipo de elemento definido en los radiobuttons
+ * El botn restablecer vuelve todo a su estado inicial
+ * 
  * @author Jose Javier BO
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
+    // referencia a la logica de negocio
     Logica logica;
     
     /**
@@ -172,34 +178,66 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Evento click btnAzul
+     * @param evt 
+     */
     private void btnAzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAzulActionPerformed
         this.logica.setColor(Color.BLUE);
     }//GEN-LAST:event_btnAzulActionPerformed
 
+    /**
+     * Evento click btRojo
+     * @param evt 
+     */
     private void btnRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRojoActionPerformed
         this.logica.setColor(Color.RED);
     }//GEN-LAST:event_btnRojoActionPerformed
 
+    /**
+     * Evento click btnVerde
+     * @param evt 
+     */
     private void btnVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerdeActionPerformed
         this.logica.setColor(Color.GREEN);
     }//GEN-LAST:event_btnVerdeActionPerformed
 
+    /**
+     * Evento click btnRosa
+     * @param evt 
+     */
     private void btnRosaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRosaActionPerformed
         this.logica.setColor(Color.PINK);
     }//GEN-LAST:event_btnRosaActionPerformed
 
+    /**
+     * Evento click radio button rejilla
+     * @param evt 
+     */
     private void rbRejillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbRejillaActionPerformed
-       logica.setModo(Logica.REJILLA);
+       logica.setElemento(Logica.REJILLA);
     }//GEN-LAST:event_rbRejillaActionPerformed
 
+        /**
+     * Evento click radio button fondo
+     * @param evt 
+     */
     private void rbFondoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFondoActionPerformed
-       logica.setModo(Logica.FONDO);
+       logica.setElemento(Logica.FONDO);
     }//GEN-LAST:event_rbFondoActionPerformed
 
+        /**
+     * Evento click radio button listado
+     * @param evt 
+     */
     private void rbListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbListadoActionPerformed
-       logica.setModo(Logica.LISTADO);
+       logica.setElemento(Logica.LISTADO);
     }//GEN-LAST:event_rbListadoActionPerformed
 
+        /**
+     * Evento click btnRestablecer
+     * @param evt 
+     */
     private void btnRestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestablecerActionPerformed
         this.logica.restablecer();
     }//GEN-LAST:event_btnRestablecerActionPerformed

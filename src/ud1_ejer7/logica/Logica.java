@@ -7,24 +7,74 @@ Lista de paquetes:
 package ud1_ejer7.logica;
 
 import java.awt.Color;
-import java.awt.Panel;
 import ud1_ejer7.gui.VentanaPrincipal;
 
 /**
- *
+ * Lógica de negocio del ejercicio 7
+ * 
+ * Recibe ordenes de qué elemento es el que se modificará almacenandolo en el atributo "elemento".
+ * Cuando recibe una orden de "setColor" pone el elemento almacenado del color recibido.
+ * 
  * @author Jose Javier BO
  */
 public class Logica {
     
+    //ATRIBUTOS
+    
+    //Identificadores de los elementos
     public static final int REJILLA=0;
     public static final int FONDO=1;
     public static final int LISTADO=2;
 
-    int modo = REJILLA;
+    //almacena el elemento a ser modificado
+    int elemento = REJILLA;
     
    VentanaPrincipal ventana;
   
-    public void setColor(int elemento, Color color){
+
+   /**
+    * Define el elemento para el proximo cambio de color
+    * @param elemento  Elemento a seleccionar
+    */
+    public void setElemento(int elemento) {
+        this.elemento=elemento;
+    }
+    
+    /**
+     * Pone los colores de los elementos con los colores por defecto
+     */
+    public void restablecer(){
+        this.setColor(REJILLA, Color.BLACK);
+        this.setColor(FONDO, new Color(242,242,242));
+        this.setColor(LISTADO, new Color(242,242,242));
+    }
+    
+    /**
+     * Guarda una referencia a la ventana principal.
+     * @param ventana La ventana
+     */
+    public void setVentana(VentanaPrincipal ventana) {
+        this.ventana=ventana;
+    } 
+
+    
+    /**
+     * Cambia el color del elemento seleccionado actualmente al color suministrado
+     * @param color El color que debe usarse
+     */
+    public void setColor(Color color) {
+        this.setColor(this.elemento, color);
+    }
+
+
+
+    
+       /**
+    * Pone un elemento del color definido
+    * @param elemento Elemento a modificar
+    * @param color   Color a usar
+    */
+    private void setColor(int elemento, Color color){
         switch (elemento) {
             case REJILLA:
                 ventana.setColorRejilla(color);
@@ -38,25 +88,7 @@ public class Logica {
             default:
         }
     }
-
-    public void restablecer(){
-        this.setColor(REJILLA, Color.BLACK);
-        this.setColor(FONDO, new Color(242,242,242));
-        this.setColor(LISTADO, new Color(242,242,242));
-    }
     
-    public void setVentana(VentanaPrincipal ventana) {
-        this.ventana=ventana;
-    } 
-
-    public void setColor(Color BLUE) {
-        this.setColor(this.modo, BLUE);
-    }
-
-    public void setModo(int modo) {
-        this.modo=modo;
-    }
-
     public static void main(String[] args) {
         
                 /* Set the Nimbus look and feel */
